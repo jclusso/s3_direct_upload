@@ -35,7 +35,6 @@ $.fn.S3Uploader = (options) ->
 
   setUploadForm = ->
     $uploadForm.fileupload
-      sequentialUploads: true,
       add: (e, data) ->
         file = data.files[0]
         file.unique_id = Math.random().toString(36).substr(2,16)
@@ -130,6 +129,7 @@ $.fn.S3Uploader = (options) ->
         unless 'FormData' of window
           $uploadForm.find("input[name='key']").val(settings.path + key)
         data
+      sequentialUploads: true
 
   build_content_object = ($uploadForm, file, result) ->
     content = {}
