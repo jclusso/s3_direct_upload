@@ -39,8 +39,8 @@ $.fn.S3Uploader = (options) ->
     
     if settings.image_resize
       disableImageResize: /Android(?!.*Chrome)|Opera/
-        .test(window.navigator && navigator.userAgent),
-      imageMaxWidth: 800,
+        .test(window.navigator && navigator.userAgent)
+      imageMaxWidth: 800
       imageMaxHeight: 800
     
       add: (e, data) ->
