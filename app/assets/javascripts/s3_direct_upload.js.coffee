@@ -37,11 +37,11 @@ $.fn.S3Uploader = (options) ->
   setUploadForm = ->
     $uploadForm.fileupload
     
-      if settings.image_resize
-        disableImageResize: /Android(?!.*Chrome)|Opera/
-          .test(window.navigator && navigator.userAgent),
-        imageMaxWidth: 800,
-        imageMaxHeight: 800
+    if settings.image_resize
+      disableImageResize: /Android(?!.*Chrome)|Opera/
+        .test(window.navigator && navigator.userAgent),
+      imageMaxWidth: 800,
+      imageMaxHeight: 800
     
       add: (e, data) ->
         file = data.files[0]
