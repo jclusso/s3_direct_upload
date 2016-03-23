@@ -37,7 +37,7 @@ $.fn.S3Uploader = (options) ->
   setUploadForm = ->
     $uploadForm.fileupload
     
-      if setting.image_resize
+      if settings.image_resize
         disableImageResize: /Android(?!.*Chrome)|Opera/
           .test(window.navigator && navigator.userAgent),
         imageMaxWidth: 800,
