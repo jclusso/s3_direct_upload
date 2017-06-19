@@ -35,7 +35,7 @@ $.fn.S3Uploader = (options) ->
 
   setUploadForm = ->
     $uploadForm.fileupload
-    
+
       add: (e, data) ->
         file = data.files[0]
         file.unique_id = Math.random().toString(36).substr(2,16)
@@ -60,9 +60,11 @@ $.fn.S3Uploader = (options) ->
 
       progress: (e, data) ->
         if data.context
-          progress = parseInt(data.loaded / data.total * 100, 10) + "%"
-          data.context.find('.progress-bar').css('width', progress)
-          data.context.find('.progress-amount').html(progress)
+          progress = parseInt(data.loaded / data.total * 100, 10)
+          progressText = "#{progress}%"
+          $uploadForm.trigger("s3_upload_progress", [data.context, progress])
+          data.context.find('.progress-bar').css('width', progressText)
+          data.context.find('.progress-amount').html(progressText)
 
       done: (e, data) ->
         content = build_content_object $uploadForm, data.files[0], data.result
