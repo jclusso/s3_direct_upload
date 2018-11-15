@@ -66,8 +66,6 @@ $.fn.S3Uploader = (options) ->
           progress = parseInt(data.loaded / data.total * 100, 10)
           progressText = "#{progress}%"
           $uploadForm.trigger("s3_upload_progress", [data.context, progress])
-          data.context.find('.progress-bar').css('width', progressText)
-          data.context.find('.progress-amount').html(progressText)
 
       done: (e, data) ->
         content = build_content_object $uploadForm, data.files[0], data.result
